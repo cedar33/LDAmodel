@@ -31,7 +31,7 @@ def gamma_func(x):
         INFINITE = 10
     elif x < 100:
         INFINITE = 10e5
-    return integrals(gamma_in, ZERO, INFINITE, x)
+    return integrate(gamma_in, ZERO, INFINITE, x)
 
 def beta_func(alpha, beta):
     """beta函数"""
