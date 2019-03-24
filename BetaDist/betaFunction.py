@@ -50,32 +50,33 @@ def data_gen(p_data, a_data, b):
     Z = np.transpose(np.array(Z))
     return Z
 
-p_data = np.linspace(ZERO, 1, 100)
+if __name__ == '__main__':
+    p_data = np.linspace(ZERO, 1, 100)
 
-x_data = np.linspace(ZERO, 10, 30)
-x,p = np.meshgrid(x_data, p_data)
+    x_data = np.linspace(ZERO, 10, 100)
+    x,p = np.meshgrid(x_data, p_data)
 
-z_data = []
-for y in np.linspace(0, 10, 30):
-    Z = data_gen(p_data, x_data, y)
-    z_data.append(Z)
+    z_data = []
+    for y in np.linspace(0, 10, 100):
+        Z = data_gen(p_data, x_data, y)
+        z_data.append(Z)
 
 
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
 
-ax.set_zlim(0, 5)
+    ax.set_zlim(0, 5)
 
-# Begin plotting.
-wframe = None
-tstart = time.time()
-while 1:
-    for z in z_data:
-        # If a line collection is already remove it before drawing.
-        if wframe:
-            ax.collections.remove(wframe)
+    # Begin plotting.
+    wframe = None
+    tstart = time.time()
+    while 1:
+        for z in z_data:
+            # If a line collection is already remove it before drawing.
+            if wframe:
+                ax.collections.remove(wframe)
 
-        # Plot the new wireframe and pause briefly before continuing.
-        wframe = ax.plot_wireframe(x, p, z, rstride=2, cstride=2)
-        plt.pause(.1)
-    print('Average FPS: %f' % (100 / (time.time() - tstart)))
+            # Plot the new wireframe and pause briefly before continuing.
+            wframe = ax.plot_wireframe(x, p, z, rstride=2, cstride=2)
+            plt.pause(.1)
+        print('Average FPS: %f' % (100 / (time.time() - tstart)))
