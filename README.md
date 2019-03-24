@@ -5,3 +5,6 @@
 
 alpha: (0, 10) beta:(0, 10)
 ![image](https://github.com/cedar33/LDAmodel/blob/master/BetaDist/%E6%97%B6%E9%97%B4%E5%88%86%E5%B8%832.gif)
+
+`dirichletDist.py` dirichlet分布的相关实验
+![image](https://github.com/cedar33/LDAmodel/blob/master/BetaDist/diric.gif)
